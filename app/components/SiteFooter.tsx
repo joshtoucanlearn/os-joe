@@ -1,0 +1,1 @@
+export function SiteFooter(){return <footer><span>OS_JOE</span><p>YOUR IDEAS. YOUR SPACE.</p></footer>}
