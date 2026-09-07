@@ -10,8 +10,7 @@ export default function StickyNotes(){
   const [draft,setDraft]=useState(blank);
   const [editing,setEditing]=useState<string|null>(null);
   const [status,setStatus]=useState('');
-  const [code,setCode]=useState('');
-  const [codeInput,setCodeInput]=useState('');
+  const [loaded,setLoaded]=useState(false);
   const [busy,setBusy]=useState(false);
   const [editingVersion,setEditingVersion]=useState<number|null>(null);
   const pending=useRef(false);
@@ -21,27 +20,27 @@ export default function StickyNotes(){
   const moveTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
   const moveBase=useRef<{id:string;version:number}|null>(null);
   useEffect(()=>{notesRef.current=notes},[notes]);
-  useEffect(()=>{try{const saved=sessionStorage.getItem('joe-wall-access');if(saved){setCodeInput(saved);void unlock(saved)}}catch{}},[]);
-  async function call(method:string,payload?:unknown,key=code){
-    const response=await fetch(API,{method,headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},...(payload?{body:JSON.stringify(payload)}:{}),signal:AbortSignal.timeout(15000)});
+  useEffect(()=>{try{sessionStorage.removeItem('joe-wall-access')}catch{}void loadWall()},[]);
+  async function call(method:string,payload?:unknown){
+    const response=await fetch(API,{method,headers:{'Content-Type':'application/json'},...(payload?{body:JSON.stringify(payload)}:{}),signal:AbortSignal.timeout(15000)});
     const data=await response.json();
     if(!response.ok){if(response.status===409)moveBase.current=null;if(data.notes){setNotes(data.notes);notesRef.current=data.notes}throw new Error(data.error||'The wall could not save. Please try again.')}
     return data as {notes:Note[];note?:Note};
   }
-  async function unlock(key:string){
-    if(!key.trim()||pending.current)return;pending.current=true;setBusy(true);setStatus('Opening the shared wall…');
-    try{const data=await call('GET',undefined,key.trim());setNotes(data.notes);notesRef.current=data.notes;setCode(key.trim());try{sessionStorage.setItem('joe-wall-access',key.trim())}catch{}setStatus('All notes are saved on the shared wall.')}catch(e){setStatus(e instanceof Error?e.message:'Could not open the wall. Try again.')}finally{pending.current=false;setBusy(false)}
+  async function loadWall(){
+    if(pending.current)return;pending.current=true;setBusy(true);setStatus('Loading the shared wall…');
+    try{const data=await call('GET');setNotes(data.notes);notesRef.current=data.notes;setLoaded(true);setStatus('All notes are saved on the shared wall.')}catch{setStatus('Could not open the wall. Please try again.')}finally{pending.current=false;setBusy(false)}
   }
   useEffect(()=>{
-    if(!code)return;
+    if(!loaded)return;
     let active=true;
     const refresh=async()=>{if(pending.current||drag.current||moveBase.current)return;const started=generation.current;try{const data=await call('GET');if(active&&started===generation.current&&!pending.current&&!drag.current&&!moveBase.current){setNotes(data.notes);notesRef.current=data.notes}}catch{if(active)setStatus('Connection lost. Your notes are still saved online. Reconnect before making changes.')}};
     const timer=setInterval(refresh,8000);window.addEventListener('focus',refresh);
     return()=>{active=false;clearInterval(timer);window.removeEventListener('focus',refresh)};
-  },[code]);
+  },[loaded]);
   async function save(method:string,payload:unknown){
     if(pending.current)return null;pending.current=true;generation.current++;setBusy(true);setStatus('Saving…');
-    try{const data=await call(method,payload);setNotes(data.notes);notesRef.current=data.notes;setStatus('Saved. Everyone with the wall code can see this.');return data}catch(e){setStatus(e instanceof Error?e.message:'Not saved yet. Your words are still here; try again.');return null}finally{generation.current++;pending.current=false;setBusy(false)}
+    try{const data=await call(method,payload);setNotes(data.notes);notesRef.current=data.notes;setStatus('Saved. Everyone can see this on the shared wall.');return data}catch(e){setStatus(e instanceof Error?e.message:'Not saved yet. Your words are still here; try again.');return null}finally{generation.current++;pending.current=false;setBusy(false)}
   }
 
   const [removed,setRemoved]=useState<Note|null>(null);
@@ -52,9 +51,9 @@ export default function StickyNotes(){
   useEffect(()=>{
     const mc=(document as Document & {modelContext?:{registerTool:(tool:unknown,options:unknown)=>void}}).modelContext;
     if(!mc)return;const controller=new AbortController();
-    try{mc.registerTool({name:'read_joe_draft',description:'Read Joe’s current sticky note draft and wall without changing them.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:true},execute:(input:unknown)=>{if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).length)throw new Error('Expected an empty object');return code?{title:draft.title,body:draft.body,notes}:{locked:true}}},{signal:controller.signal})}catch{}
+    try{mc.registerTool({name:'read_joe_draft',description:'Read Joe’s current sticky note draft and wall without changing them.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:true},execute:(input:unknown)=>{if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).length)throw new Error('Expected an empty object');return loaded?{title:draft.title,body:draft.body,notes}:{loading:true}}},{signal:controller.signal})}catch{}
     return()=>controller.abort();
-  },[draft,notes,code]);
+  },[draft,notes,loaded]);
   async function pin(){
     if(!draft.title.trim()&&!draft.body.trim())return;
     const existing=notesRef.current.find(n=>n.id===editing);
@@ -78,10 +77,9 @@ export default function StickyNotes(){
   }
   async function remove(note:Note){const data=await save('DELETE',{id:note.id,version:note.version});if(data?.note){setRemoved(data.note);if(editing===note.id){setEditing(null);setEditingVersion(null);setDraft(blank)}}}
   async function undo(){if(removed&&await save('PATCH',{id:removed.id,version:removed.version,action:'restore'}))setRemoved(null)}
-  function lock(){if(pending.current||moveBase.current){setStatus('Finish saving your changes before closing the wall.');return}setCode('');setCodeInput('');setNotes([]);notesRef.current=[];try{sessionStorage.removeItem('joe-wall-access')}catch{}setStatus('Wall closed.');}
   function download(){const url=URL.createObjectURL(new Blob([notes.map(n=>n.title+'\n'+n.body).join('\n\n---\n\n')],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download='joe-sticky-notes.txt';a.click();URL.revokeObjectURL(url)}
-  if(!code)return <main className="joe-page"><span className="system-code">03 / MY IDEAS WALL</span><h1>Joe’s sticky notes</h1><form className="joe-panel wall-unlock" onSubmit={e=>{e.preventDefault();void unlock(codeInput)}}><h2>Open our shared wall</h2><p>Notes stay here for next time, on every device.</p><label htmlFor="wall-code">Wall code</label><input id="wall-code" type="password" autoComplete="current-password" value={codeInput} onChange={e=>setCodeInput(e.target.value)} required/><p>Use the code Joshua shared with you.</p><button className="game-button" disabled={busy} type="submit">{busy?'Opening…':'Open wall'}</button><p role="status">{status}</p></form></main>;
-  return <main className="joe-page"><span className="system-code">03 / MY IDEAS WALL</span><div className="sticky-heading"><h1>Joe’s sticky notes</h1><div className="note-backup"><button disabled={busy} onClick={lock}>Close wall</button><button onClick={download} disabled={!notes.length}>Download my notes</button></div></div>
+  if(!loaded)return <main className="joe-page"><span className="system-code">03 / MY IDEAS WALL</span><h1>Joe’s sticky notes</h1><p role="status">{status||'Loading the shared wall…'}</p>{!busy&&<button className="game-button" onClick={loadWall}>Try again</button>}</main>;
+  return <main className="joe-page"><span className="system-code">03 / MY IDEAS WALL</span><div className="sticky-heading"><h1>Joe’s sticky notes</h1><div className="note-backup"><button onClick={download} disabled={!notes.length}>Download my notes</button></div></div>
     <div className="sticky-layout"><form className="joe-panel note-composer" onSubmit={e=>{e.preventDefault();void pin()}}>
       <label htmlFor="note-title">Give it a name</label><input ref={titleInput} id="note-title" disabled={busy} maxLength={120} value={draft.title} onChange={e=>setDraft({...draft,title:e.target.value})} placeholder="My next idea"/>
       <label htmlFor="note-body">Your note</label><textarea id="note-body" disabled={busy} maxLength={4000} value={draft.body} onChange={e=>setDraft({...draft,body:e.target.value})} placeholder="My drink is… / I want to try…"/>

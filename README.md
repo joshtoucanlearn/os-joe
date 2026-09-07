@@ -10,6 +10,6 @@ Run `pnpm test` and `pnpm build` before publishing. Static output is in `dist/cl
 
 ## Data and artwork
 
-Sticky notes are saved in the shared D1-backed wall service. The same wall code allows Joe and his tutors to read and change them from any device. The code is kept only for the current tab session and is never bundled into the site. Notes can also be downloaded as text. Earlier notebook drafts remain untouched in browser storage. No learner assessments, family correspondence or teacher notes are included.
+Sticky notes are saved in the shared D1-backed wall service. The wall opens directly without a code; anyone with the link can read and change notes from any device. Notes can also be downloaded as text. Earlier notebook drafts remain untouched in browser storage. No learner assessments, family correspondence or teacher notes are included.
 
 Drink artwork is retained from the original lessons. Rotating bottle geometry and unseen surfaces are reconstructions. Ground Pinch remains a concept template. Existing OS_Harriet components provided the visual framework and arcade.
