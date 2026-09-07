@@ -7,6 +7,7 @@ import { SiteHeader } from "./SiteHeader";
 
 export function SiteFrame({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
+  if (pathname === "/" || pathname === "/os-joe/" || pathname === "/os-joe") return <>{children}</>;
 
   
 
