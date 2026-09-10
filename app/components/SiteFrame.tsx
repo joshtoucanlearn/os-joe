@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { CosmicRadio } from "./CosmicRadio";
 import { InteractiveSky } from "./InteractiveSky";
 import { PetCat } from "./PixelPet";
 import { SiteFooter } from "./SiteFooter";
@@ -18,6 +19,11 @@ export function SiteFrame({ children }: Readonly<{ children: React.ReactNode }>)
         owner="Joe's"
         storageKey="os-joe-sky-preset"
         assetPrefix="/os-joe"
+      />
+      <CosmicRadio
+        owner="Joe"
+        storageKey="os-joe-cosmic-radio-volume"
+        petSrc="/os-joe/radio-pet.png"
       />
       <SiteHeader />
       <div className="os-workspace">

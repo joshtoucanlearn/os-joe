@@ -1,0 +1,382 @@
+[
+  {
+    "number": 1,
+    "title": "Tokyo Reggie",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/01.mp3",
+    "duration": 260.0,
+    "sourceFile": "01 TOKYO REGGIE.ogg",
+    "sourceSha256": "603ccdd9cbb29b1bcf3114b911c211ad29db40eacacfb8ec533d5994c148f1d5",
+    "sha256": "d95a5dde598ab436a9b6962e7247c3bcf0d5118bf8820197ff8ac45ad3884a8a"
+  },
+  {
+    "number": 2,
+    "title": "I Remember You",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/02.mp3",
+    "duration": 327.0,
+    "sourceFile": "02 I REMEMBER YOU.ogg",
+    "sourceSha256": "a92fa04a051c41a38d73a583e0fcddbae0666cee88241e7431f4693d3004e6dd",
+    "sha256": "f92f3fc26bfd86d851bc743fed76071f949c7b8b122e86158aa4cb0611e40af1"
+  },
+  {
+    "number": 3,
+    "title": "Ready To Fly",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/03.mp3",
+    "duration": 417.0,
+    "sourceFile": "03 READY TO FLY.ogg",
+    "sourceSha256": "087bf2ee191137e7a6990a357ddfc109aee039d80276a069432f1230f0c6210a",
+    "sha256": "a65ea4c573d0210754c13b2abf942cc627c824797b490b043dc52f8bbbe46556"
+  },
+  {
+    "number": 4,
+    "title": "Beleza Pula",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/04.mp3",
+    "duration": 473.0,
+    "sourceFile": "04 BELEZA PULA.ogg",
+    "sourceSha256": "b121b959f3bd0a2737a95275a1acdfc54651977d5c3898bd8799800d28425257",
+    "sha256": "c318fdfd613902e0e254d1fcb56aa62103eb8d1abf6eaf774aa7298749dfc28a"
+  },
+  {
+    "number": 5,
+    "title": "Brasilian Skies",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/05.mp3",
+    "duration": 353.0,
+    "sourceFile": "05 BRASILIAN SKIES.ogg",
+    "sourceSha256": "4ee4440d1cacc4255c34e0474fec13c59746f07c614a53aac14812b022b8ac78",
+    "sha256": "b25b146244111bda24fdf08b1c939699e221f992b3cfce7e994973578f411863"
+  },
+  {
+    "number": 6,
+    "title": "Blue Lagoon",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/06.mp3",
+    "duration": 305.0,
+    "sourceFile": "06 BLUE LAGOON.ogg",
+    "sourceSha256": "8e83eea2880d1989ee2cab7e426340d56b69e8e57603aedf017fa67ad4e65a5b",
+    "sha256": "d6f5a0da4a491cb138e39f9bfdd6e85f513f50194a6fe8ec2d77209a6c075e5b"
+  },
+  {
+    "number": 7,
+    "title": "Speed Of Love",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/07.mp3",
+    "duration": 317.0,
+    "sourceFile": "07 SPEED OF LOVE.ogg",
+    "sourceSha256": "04cd84dc735a106a6ab9acfb3cdac43a9bc9fbc765595650f243af354bfaa30d",
+    "sha256": "f8c337734eed3d027c24349b886774f2a5ff360fbb10b29e6232ad55c6eba1ea"
+  },
+  {
+    "number": 8,
+    "title": "A Fair Wind",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/08.mp3",
+    "duration": 273.767256,
+    "sourceFile": "08 A Fair Wind.ogg",
+    "sourceSha256": "446bda212355f2d079462911a6122cb86d122e8b3535c70497ea3427ac88ed78",
+    "sha256": "12b7a0c6f1367d30a3594fdf2bb43beb0dfffefa919cd7c2f13e2d01c1b572ea"
+  },
+  {
+    "number": 9,
+    "title": "Mambo No. 5",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/09.mp3",
+    "duration": 237.0,
+    "sourceFile": "09 MAMBO NO. 5.ogg",
+    "sourceSha256": "7f0b963ad7f2d12931ecffffcfda2cf9b2022bff37acf4898b0d6edfe6903da4",
+    "sha256": "d62f99faf12310f3419ab78ae55ce234145fe822ef02ea5320b3d8a10362d9ce"
+  },
+  {
+    "number": 10,
+    "title": "Mambo Jambo",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/10.mp3",
+    "duration": 186.0,
+    "sourceFile": "10 MAMBO JAMBO.ogg",
+    "sourceSha256": "92b02883a285f3da1e854ce7ba4232ed920c4cf6b86ca65bafba69a7e3428ff4",
+    "sha256": "fb92ff0e50c6a1a1c749f2c15484ce898d8cc0cc1aadcc9b84f2c1921f39eba6"
+  },
+  {
+    "number": 11,
+    "title": "Funky Holo Holo Bird",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/11.mp3",
+    "duration": 364.0,
+    "sourceFile": "11 FUNKY HOLO HOLO BIRD.ogg",
+    "sourceSha256": "0cbb578df9b4883cba99687c80970d178108b53175ec2cfb8c5c67796f955220",
+    "sha256": "9bdd31faffae5dd07317b6cf79105ffe83f0fb679d0004bebf42b4a2f07e1617"
+  },
+  {
+    "number": 12,
+    "title": "Summer Breeze",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/12.mp3",
+    "duration": 293.0,
+    "sourceFile": "12 SUMMER BREEZE.ogg",
+    "sourceSha256": "c01afa699018396872aa20f1f972598e3b098f58a1149e12bcd282d5aac05338",
+    "sha256": "538cb6e5897f5265fe936fde8c34120f36113ebb848c5601f2fe7747d81ee370"
+  },
+  {
+    "number": 13,
+    "title": "Breezin'",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/13.mp3",
+    "duration": 347.0,
+    "sourceFile": "13 BREEZIN'.ogg",
+    "sourceSha256": "c4c918087e31aecc0ff2207f3a6f3f78e29e1604dbf02622f5f0ac56e45892cf",
+    "sha256": "fad772e9384c3dc23379f4d1c50c33ed152952aca097bde1b4b177475eaf4ed2"
+  },
+  {
+    "number": 14,
+    "title": "Once Upon A Song",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/14.mp3",
+    "duration": 310.0,
+    "sourceFile": "14 ONCE UPON A SONG.ogg",
+    "sourceSha256": "204d43c23b3ae05bcaed4a4792acf01a068c6c299edb3cd3febe4480114fb646",
+    "sha256": "556f208ffc8d869517bf8bcd0e7f38eed4828d098c3799a606e3e5a7dfb73277"
+  },
+  {
+    "number": 15,
+    "title": "Oh! Tengo Suerte",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/15.mp3",
+    "duration": 253.0,
+    "sourceFile": "15 OH! TENGO SUERTE.ogg",
+    "sourceSha256": "055c44c5de54d06ce53e517ad78ef6930ce7ebd898ceb61d9a6d7dc807c1ff3b",
+    "sha256": "e83f71afe51cb7aaac2f3b61cd57654b3b56fc02f01e7c05c86b0a6681b2d497"
+  },
+  {
+    "number": 16,
+    "title": "Saudade",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/16.mp3",
+    "duration": 220.0,
+    "sourceFile": "16 SAUDADE.ogg",
+    "sourceSha256": "56dc627e39b1bc14fd6c691fc09d89a53d5c729a0e469fa7394bd1420a03a60d",
+    "sha256": "ce874b868becf5d945172667da24a763944123e67e47db4e92ba5854f0f4c6d1"
+  },
+  {
+    "number": 17,
+    "title": "Feedback'S Feel",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/17.mp3",
+    "duration": 351.0,
+    "sourceFile": "17 FEEDBACK'S FEEL.ogg",
+    "sourceSha256": "2124fb83e104966dfecbc3260af10dbe2983da41ceb862281834bf37cb5842dd",
+    "sha256": "830525d42b8e9293fc543eca3710bdacc4ce9c69be95b0c2c0271bdba9949fe2"
+  },
+  {
+    "number": 18,
+    "title": "Malibu",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/18.mp3",
+    "duration": 373.0,
+    "sourceFile": "18 MALIBU.ogg",
+    "sourceSha256": "825388a5bc61f6cb2f73bca70ac978afb693652da332887cb98f7f40b3702b6b",
+    "sha256": "be29f2eda50556b97625497bce27dc62e23735f554914d53ae8fdb8fee4a7c55"
+  },
+  {
+    "number": 19,
+    "title": "Seven Goblins",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/19.mp3",
+    "duration": 192.0,
+    "sourceFile": "19 SEVEN GOBLINS.ogg",
+    "sourceSha256": "a9f26d32637c1b70cc7e1a2153cf5aba374408c9262ac0773ed22df2d8fa8c66",
+    "sha256": "9bf459cd3eb76a2a2503602df7a3cc4abac99f4f4de6705b73b57cccd729192b"
+  },
+  {
+    "number": 20,
+    "title": "Alone",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/20.mp3",
+    "duration": 339.0,
+    "sourceFile": "20 ALONE.ogg",
+    "sourceSha256": "013b7e5e56057943f49afa0e845b870d1e7fcdb343d7a50a4e6fac67c0a76214",
+    "sha256": "c38ae0f4e9d32e6d71db57805a229953f6f07c4758e73db4f812717602a25c56"
+  },
+  {
+    "number": 21,
+    "title": "Explosion",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/21.mp3",
+    "duration": 146.0,
+    "sourceFile": "21 EXPLOSION.ogg",
+    "sourceSha256": "01d99e26958cf23c0fdfeda4598664b6472f20ea75c88e2225615948227c41be",
+    "sha256": "170368213fa78ee9d15922e55054748fbdaf5396a20b7b5d666e6fe8f099aa3a"
+  },
+  {
+    "number": 22,
+    "title": "Mambo No. 6",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/22.mp3",
+    "duration": 251.0,
+    "sourceFile": "22 MAMBO NO. 6.ogg",
+    "sourceSha256": "efe23765bbce9d2cd37f6bfe2144e0cc35b4c2c326e2a8798a23781235feeafd",
+    "sha256": "9539424da83a08a8edef4a8aefc5dcf5e738442ae03b5ccda06b249cef85c25d"
+  },
+  {
+    "number": 23,
+    "title": "Sweet Agnes",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/23.mp3",
+    "duration": 282.0,
+    "sourceFile": "23 SWEET AGNES.ogg",
+    "sourceSha256": "14a76967ba4964981d0ebbeca075a81a71aaf6206d5c4b6f321a03ce3ed1dbbb",
+    "sha256": "50f73bf9788fd5db26e7f86a3664f109bded01d4eeb436621f41ca0d5de29985"
+  },
+  {
+    "number": 24,
+    "title": "Breakin' Loose",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/24.mp3",
+    "duration": 287.0,
+    "sourceFile": "24 BREAKIN' LOOSE.ogg",
+    "sourceSha256": "35346687fa56ee676525056d20e65518c462139a3fd6326fc4b70f8f35986423",
+    "sha256": "c6840557bf481a43f605aebaaf669226a80625a32ba3cfbcd6a3190899c22a3e"
+  },
+  {
+    "number": 25,
+    "title": "Heart Ache",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/25.mp3",
+    "duration": 337.0,
+    "sourceFile": "25 HEART ACHE.ogg",
+    "sourceSha256": "ef27645ad90144fec09f929d99563ec4ebb9162f28ca013ca377694c89f41429",
+    "sha256": "a3565d9162b107524e3971c56f34934c098502ef025097d8500e250d63e82fd4"
+  },
+  {
+    "number": 26,
+    "title": "E.S.P",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/26.mp3",
+    "duration": 251.0,
+    "sourceFile": "26 E.S.P.ogg",
+    "sourceSha256": "6b362be44482e8226ebf41803be5e90df3a7bad9e490703422f92d1d6da192c3",
+    "sha256": "109d758434dc7d70d749da7d6b375d47dfc252d0d0d2eda2b29a4865f85f1cd5"
+  },
+  {
+    "number": 27,
+    "title": "Straight From Your Heart",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/27.mp3",
+    "duration": 221.0,
+    "sourceFile": "27 STRAIGHT FROM YOUR HEART.ogg",
+    "sourceSha256": "df0c1f083df813ac3c93994fe6152c8ea313919fd8f824f445e82b3df9d99701",
+    "sha256": "59c1e1a902bf3c4649d27630ef94c7256e399ea5999b114b57b3c03f49c8ed29"
+  },
+  {
+    "number": 28,
+    "title": "The Night Delay",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/28.mp3",
+    "duration": 377.0,
+    "sourceFile": "28 THE NIGHT DELAY.ogg",
+    "sourceSha256": "a42a8cea9714d99e749369a67c9daa96ae939025d5faf600ebafdbc7f83bad40",
+    "sha256": "65dd5a1210ef2069dcf9333efd1c89ef5bb0b3b8527b6b0eee5c3878ecef7951"
+  },
+  {
+    "number": 29,
+    "title": "Ride'Em High",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/29.mp3",
+    "duration": 226.0,
+    "sourceFile": "29 RIDE'EM HIGH.ogg",
+    "sourceSha256": "3b567fd62411d2d8c7a447f3a6e3e881376227ffe1c6df2fc4f4e939d113333d",
+    "sha256": "9081cb3a7b2891ad0dab7b73ef654b6d725cdc5bccd2d938b1e9629b3396e99e"
+  },
+  {
+    "number": 30,
+    "title": "One More Night",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/30.mp3",
+    "duration": 249.0,
+    "sourceFile": "30 ONE MORE NIGHT.ogg",
+    "sourceSha256": "6133c2e5867f6874fcf98458700d2f43cfc591e137d3f5f95efd9c36b65965f9",
+    "sha256": "b049ffd0f3d7c1c4443d8622094a04b65b2fc345b0b2d027c0b98241caa1638e"
+  },
+  {
+    "number": 31,
+    "title": "Chill Me Out",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/31.mp3",
+    "duration": 275.0,
+    "sourceFile": "31 CHILL ME OUT.ogg",
+    "sourceSha256": "78c2459bc2133e4e4ad383f0a89ea90b76efb0e7dacbc0ba3861caee7303825e",
+    "sha256": "7a5adba64834922fdfeb2a03e5ed19c7c9cbf7ae028935257bef076af8b1e7d7"
+  },
+  {
+    "number": 32,
+    "title": "Bamboo Vender",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/32.mp3",
+    "duration": 210.0,
+    "sourceFile": "32 BAMBOO VENDER.ogg",
+    "sourceSha256": "a1053a95f8b072837bdfb432443406b72b982eef6f107761d6302b81c66297a0",
+    "sha256": "1063680a4d4fd76eabfe0d5ee88fb99721e417e39ba4ac7ae66592910e88add1"
+  },
+  {
+    "number": 33,
+    "title": "Sundrops",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/33.mp3",
+    "duration": 306.0,
+    "sourceFile": "33 SUNDROPS.ogg",
+    "sourceSha256": "54e21ca5726987e27e03dc0ec56cd147be3658cd4a73b4f9f0063fa662b0156e",
+    "sha256": "2713dd761ef4cd1f79804643c65fce6b02d31002b053b23378eee42f95932dda"
+  },
+  {
+    "number": 34,
+    "title": "Santigo Bay Rendez-Vous",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/34.mp3",
+    "duration": 263.0,
+    "sourceFile": "34 SANTIGO BAY RENDEZ-VOUS.ogg",
+    "sourceSha256": "3d86ec0ae566ce434e350865bb66007cdcd410403ee66d46b5cb7f75ada6ef78",
+    "sha256": "76be1a0b140aec4d48e51ab65690e13408658d43483b7963b755b8ca49e2b98a"
+  },
+  {
+    "number": 35,
+    "title": "My Secret Beach",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/35.mp3",
+    "duration": 326.0,
+    "sourceFile": "35 MY SECRET BEACH.ogg",
+    "sourceSha256": "4737696c94b2eef02366ef096684f79522a4b5bdcc4f6ba6e409267d69ef4903",
+    "sha256": "64d3eff9c36c9ffbf34b9818269932fe2e373c5c82b9978ac2f6b23c56034f8d"
+  },
+  {
+    "number": 36,
+    "title": "Rainy Day Blue",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/36.mp3",
+    "duration": 244.0,
+    "sourceFile": "36 RAINY DAY BLUE.ogg",
+    "sourceSha256": "c963a3cb91d4398454b3e762453c3b7c519f79c43cbd0aa6728c0c29f72ba53d",
+    "sha256": "555e0e8a22633b2df28d03f8c093898dfa43527788d77358188178c139b19ba3"
+  },
+  {
+    "number": 37,
+    "title": "Noon",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/37.mp3",
+    "duration": 184.0,
+    "sourceFile": "37 NOON.ogg",
+    "sourceSha256": "2d579e5bc5ac9d280c83e1bda3d5d5515770f66ff65cd18b63b5512b9dbd6e52",
+    "sha256": "fd7bb39b6e4efeb6f4616166366cc114424f29f77463a7048344a65e08ebf4d4"
+  },
+  {
+    "number": 38,
+    "title": "Plumed Bird",
+    "artist": "Masayoshi Takanaka",
+    "src": "music/38.mp3",
+    "duration": 90.19229,
+    "sourceFile": "38 PLUMED BIRD.ogg",
+    "sourceSha256": "36e0eb25a6f107db1dbac581d40f218b9ac2bf8ce530576c374dc029a00a6284",
+    "sha256": "1ba86efc09c64d2692c16447d7cedd3048041e831cedf8c12d67634b8c498204"
+  }
+]
