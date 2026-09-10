@@ -9,6 +9,7 @@ import {
   type BreathPhase,
   type CatPhase,
 } from "./welcomecatFrames";
+import { InteractiveSky } from "./InteractiveSky";
 
 type CatFrame = { frame: number; phase: CatPhase };
 const IDLE_FRAME: CatFrame = { frame: IDLE_FRAME_INDEX, phase: "idle" };
@@ -297,13 +298,18 @@ export function LandingScreen({
         if (event.key.toLowerCase() === "c") enterSite();
       }}
     >
+      <InteractiveSky
+        owner="Joe's"
+        storageKey="os-joe-sky-preset"
+        assetPrefix="/os-joe"
+        placement="landing"
+      />
       <span className="landing-canvas">
         <div className="joe-entry-art">
           <span className="joe-entry-kicker">WELCOME TO</span>
           <strong>OS_JOE</strong>
           <span className="joe-entry-subtitle">MAKE · CREATE · PLAY</span>
         </div>
-        <span className="pixel-galaxy" aria-hidden="true" />
         <span
           className={`landing-cat-sprite cat-phase-${catFrame.phase}${atlasReady ? " is-atlas-ready" : ""}`}
           data-cat-phase={catFrame.phase}

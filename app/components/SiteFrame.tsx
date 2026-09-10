@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { InteractiveSky } from "./InteractiveSky";
 import { PetCat } from "./PixelPet";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
@@ -13,10 +14,11 @@ export function SiteFrame({ children }: Readonly<{ children: React.ReactNode }>)
 
   return (
     <div className="os-root">
-      <div className="os-space" aria-hidden="true">
-        <span className="os-nebula" />
-        <span className="pixel-galaxy os-starfield" />
-      </div>
+      <InteractiveSky
+        owner="Joe's"
+        storageKey="os-joe-sky-preset"
+        assetPrefix="/os-joe"
+      />
       <SiteHeader />
       <div className="os-workspace">
         {children}

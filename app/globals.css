@@ -23,10 +23,38 @@ button, input, textarea, select { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
+/* Shared interactive sky engine. */
+.sky-experience { display: contents; }
+.galaxy-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--sky-fallback-image) center / cover, linear-gradient(130deg, #166181, #3e9a8d 52%, #dcce91);
+  background-blend-mode: screen;
+  image-rendering: pixelated;
+}
+.galaxy-sky { width: 100%; height: 100%; display: block; opacity: 0; image-rendering: pixelated; }
+.galaxy-touch { position: fixed; inset: 0; z-index: 1; pointer-events: none; outline-offset: -6px !important; }
+.galaxy-touch:focus-visible { outline: 2px solid #96e6d1; }
+.sky-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(7,49,62,.42), transparent 65%); }
+.keyboard-hint { position: fixed; z-index: 70; left: 50%; top: 18px; transform: translateX(-50%); margin: 0; padding: 9px 13px; border: 1px solid rgba(150,230,209,.42); background: rgba(8,24,38,.94); color: #edf4f7; font: 14px/1.2 system-ui, sans-serif; pointer-events: none; }
+.sky-dock { position: fixed; z-index: 55; left: 310px; bottom: 18px; display: flex; align-items: stretch; gap: 5px; padding: 6px; border: 1px solid rgba(150,182,209,.34); border-radius: 14px; background: rgba(7,20,33,.92); box-shadow: 0 8px 34px rgba(0,0,0,.34); color: #edf4f7; pointer-events: auto; }
+.landing-sky .sky-dock { z-index: 6; left: 18px; }
+.sky-dock button, .sky-select { min-height: 40px; border: 0; border-radius: 9px; background: transparent; color: inherit; font: 800 11px/1 system-ui, sans-serif; letter-spacing: .06em; }
+.sky-dock button { display: inline-flex; align-items: center; gap: 7px; padding: 0 11px; cursor: pointer; }
+.sky-dock button:hover, .sky-dock button:focus-visible { background: #244052; }
+.sky-select { display: flex; align-items: center; gap: 6px; padding-left: 10px; }
+.sky-select > span { color: #9fc8c6; }
+.sky-select select { min-height: 38px; max-width: 112px; padding: 0 7px; border: 0; border-radius: 8px; background: #122333; color: #edf4f7; font: 700 12px/1 system-ui, sans-serif; cursor: pointer; }
+.sky-swatch { width: 9px; height: 9px; border-radius: 50%; background: #7cffe2; box-shadow: 0 0 8px currentColor; }
+.sky-swatch-1 { background: #c49dff; }
+.sky-swatch-2 { background: #ffc078; }
+
 /* Entrance screen */
 .landing-page { position: fixed; inset: 0; z-index: 2000; width: 100vw; height: 100vh; padding: 0; overflow: hidden; border: 0; background: #020a14; color: white; cursor: default; }
 .landing-page:focus-visible { outline: 3px solid var(--teal); outline-offset: -8px; }
-.landing-canvas { position: absolute; left: 50%; top: 50%; width: min(100vw, 150vh); height: min(100vh, 66.6667vw); transform: translate(-50%, -50%); pointer-events: none; }
+.landing-canvas { position: absolute; z-index: 2; left: 50%; top: 50%; width: min(100vw, 150vh); height: min(100vh, 66.6667vw); transform: translate(-50%, -50%); pointer-events: none; }
 .landing-art { position: absolute; inset: 0; width: 100%; height: 100%; user-select: none; }
 .landing-page::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 68%, rgba(1,8,17,.14) 76%, rgba(1,8,17,.84) 100%); pointer-events: none; }
 .pixel-galaxy { position: absolute; z-index: 1; inset: 3% 2%; overflow: hidden; opacity: .44; mix-blend-mode: screen; mask-image: linear-gradient(to right, transparent 2%, black 15% 94%, transparent 99%); }
@@ -80,7 +108,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .jump-review-card small { color: var(--teal); font-size: 8px; letter-spacing: .1em; }
 @media(max-width:900px){.jump-review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jump-review-header{align-items:start;flex-direction:column}}
 @media(max-width:520px){.jump-review-grid{grid-template-columns:1fr}}
-.continue-prompt { position: absolute; z-index: 2; left: 50%; bottom: clamp(24px, 4vh, 48px); transform: translateX(-50%); padding: 11px 16px; border: 1px solid rgba(16,199,181,.8); background: rgba(2,10,20,.86); box-shadow: 4px 4px 0 rgba(244,191,79,.58); color: var(--gold); font-size: clamp(11px, 1.2vw, 16px); font-weight: 900; letter-spacing: .15em; white-space: nowrap; animation: prompt-pulse 1.05s steps(2, end) infinite; }
+.continue-prompt { position: absolute; z-index: 4; left: 50%; bottom: clamp(24px, 4vh, 48px); transform: translateX(-50%); padding: 11px 16px; border: 1px solid rgba(16,199,181,.8); background: rgba(2,10,20,.86); box-shadow: 4px 4px 0 rgba(244,191,79,.58); color: var(--gold); font-size: clamp(11px, 1.2vw, 16px); font-weight: 900; letter-spacing: .15em; white-space: nowrap; animation: prompt-pulse 1.05s steps(2, end) infinite; }
 .prompt-caret { margin-right: 10px; color: var(--teal); }
 .entry-flash { position: absolute; z-index: 5; inset: 0; pointer-events: none; opacity: 0; background: repeating-linear-gradient(to bottom, rgba(37,242,219,.08) 0 2px, transparent 2px 7px), radial-gradient(circle, rgba(37,242,219,.34), transparent 58%); }
 .landing-page.is-entering .continue-prompt { animation: prompt-launch .54s steps(5, end) forwards; }
@@ -111,8 +139,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .ghost-button.small { min-height: 34px; padding: 7px 10px; font-size: 11px; }
 .system-error { margin: 0 0 22px; padding: 13px 15px; border: 1px solid var(--red); background: rgba(255,49,83,.1); color: #ff9aac; font-size: 13px; }
 
-/* OS_Harriet world shell */
-.os-root { min-height: 100vh; position: relative; background: var(--void); isolation: isolate; }
+/* Shared OS world shell */
+.os-root { min-height: 100vh; position: relative; background: transparent; isolation: isolate; }
 .os-space { position: fixed; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; background: #020811; }
 .os-nebula { position: absolute; inset: -4%; background: radial-gradient(circle at 78% 18%, rgba(12,87,105,.18), transparent 25%), radial-gradient(ellipse at 62% 62%, rgba(16,68,102,.16), transparent 44%), radial-gradient(circle at 38% 82%, rgba(92,50,112,.1), transparent 28%), linear-gradient(155deg, #01050c 0%, #020811 48%, #03101b 100%); opacity: .96; }
 .os-starfield { inset: -5%; opacity: .52; mask-image: radial-gradient(ellipse at 62% 43%, black 28%, rgba(0,0,0,.76) 67%, transparent 100%); }
@@ -133,7 +161,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .os-module-menu strong, .os-module-menu small { display: block; }
 .os-module-menu strong { font: 800 13px/1.15 system-ui, sans-serif; }
 .os-module-menu small { margin-top: 5px; color: var(--muted); font-size: 8px; line-height: 1.25; }
-.os-workspace { min-height: 100vh; margin-left: 290px; position: relative; z-index: 1; display: flex; flex-direction: column; }
+.os-workspace { min-height: 100vh; margin-left: 290px; position: relative; z-index: 2; display: flex; flex-direction: column; }
 .os-workspace .game-page { flex: 1; min-height: calc(100vh - 74px); background: transparent; }
 .os-workspace .scanlines { inset: 0 0 0 290px; }
 .os-workspace footer { position: relative; z-index: 2; background: rgba(1,6,12,.9); }
@@ -498,6 +526,7 @@ footer p { margin: 0; }
 @keyframes dropped-packet { 0% { opacity: 0; transform: translate(0); } 20% { opacity: 1; } 65% { opacity: .8; transform: translate(10px, -8px); } 100% { opacity: 0; transform: translate(17px, 5px); } }
 
 @media (max-width: 900px) {
+  .site-sky .sky-dock { left: 14px; }
   .os-sidebar { position: relative; inset: auto; width: 100%; min-height: auto; padding: 14px; border-right: 0; border-bottom: 1px solid rgba(32,232,213,.44); display: grid; grid-template-columns: minmax(220px, .8fr) 1.2fr; align-items: start; }
   .os-brand { grid-column: 1; }
   .os-module-menu { grid-column: 2; grid-row: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -527,6 +556,10 @@ footer p { margin: 0; }
 }
 
 @media (max-width: 600px) {
+  .sky-dock { left: 12px; right: 12px; bottom: 12px; max-width: calc(100vw - 24px); overflow-x: auto; }
+  .landing-sky .sky-dock { top: 12px; right: 12px; bottom: auto; left: 12px; }
+  .sky-dock button { padding-inline: 9px; }
+  .sky-select > span { display: none; }
   .os-sidebar { display: block; }
   .os-module-menu { margin-top: 12px; grid-template-columns: 1fr; }
   .os-module-menu a { min-height: 60px; }
@@ -609,6 +642,6 @@ footer p { margin: 0; }
 .joe-page h1,.joe-page h2,.os-brand strong,.os-brand-mark,.os-module-menu strong,.system-code,.screen-heading h1,.menu-heading h1{font-family:var(--joe-display);font-weight:400;font-synthesis:none;letter-spacing:0;line-height:1.4}
 .joe-page h1{font-size:clamp(24px,3.5vw,40px)}.joe-page h2{font-size:24px}.os-brand strong{font-size:24px}.os-module-menu strong{font-size:16px}.system-code{font-size:16px}.sticky-note h2{font-family:system-ui,sans-serif;font-size:20px;font-weight:750;line-height:1.3}.joe-page h1,.joe-page h2{overflow-wrap:anywhere}
 /* Full-screen entrance: original cat timing and sprites, Joe's own title. */
-.joe-entry-art{position:absolute;inset:3%;border:2px solid #10c7b5;background:linear-gradient(#10c7b510 1px,transparent 1px),linear-gradient(90deg,#10c7b510 1px,transparent 1px),#020a14;background-size:40px 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:6%;gap:24px;box-shadow:inset 0 0 70px #000}
+.joe-entry-art{position:absolute;inset:3%;border:2px solid #10c7b5;background-color:#020a1466;background-image:linear-gradient(#10c7b510 1px,transparent 1px),linear-gradient(90deg,#10c7b510 1px,transparent 1px);background-size:40px 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:6%;gap:24px;box-shadow:inset 0 0 70px #000}
 .joe-entry-art strong{font:400 clamp(36px,8vw,124px)/1.4 'FLM1 Pixel',monospace;color:#eef7f8;letter-spacing:0}.joe-entry-kicker{font:400 clamp(14px,2vw,28px)/1.4 'FLM1 Pixel',monospace;color:#25f2db}.joe-entry-subtitle{font:400 clamp(12px,1.8vw,24px)/1.5 'FLM1 Pixel',monospace;color:#f4bf4f}.landing-page .continue-prompt{cursor:pointer;font-size:clamp(14px,2vw,20px);min-height:48px}.landing-page .continue-prompt:disabled{cursor:default}
 .wall-unlock{max-width:560px}.wall-unlock input{font-family:ui-monospace,monospace}.wall-unlock p{max-width:45ch}
