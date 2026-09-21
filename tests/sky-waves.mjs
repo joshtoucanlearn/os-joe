@@ -42,6 +42,7 @@ const softwarePixels = target => target.locator('.galaxy-sky').last().evaluate(c
 
 try {
   await page.goto(url);
+  await renderer(page, 'pixel-warp-webgl');
   await page.getByRole('combobox', {name:'Background preset'}).selectOption('pixel');
   await page.waitForFunction(()=>document.querySelector('.galaxy-backdrop')?.dataset.skyPreset==='pixel');
   await renderer(page, 'pixel-warp-webgl');
@@ -92,6 +93,7 @@ try {
     };
   });
   await phone.goto(url);
+  await renderer(phone, 'pixel-warp-2d');
   await phone.getByRole('combobox', {name:'Background preset'}).selectOption('pixel');
   await phone.waitForFunction(()=>document.querySelector('.galaxy-backdrop')?.dataset.skyPreset==='pixel');
   await renderer(phone, 'pixel-warp-2d');
@@ -104,6 +106,7 @@ try {
 
   const reduced = await browser.newPage({ reducedMotion: 'reduce' });
   await reduced.goto(url);
+  await renderer(reduced, 'pixel-warp-webgl');
   await reduced.getByRole('combobox', {name:'Background preset'}).selectOption('pixel');
   await reduced.waitForFunction(()=>document.querySelector('.galaxy-backdrop')?.dataset.skyPreset==='pixel');
   await renderer(reduced, 'pixel-warp-webgl');
