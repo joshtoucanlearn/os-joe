@@ -60,6 +60,7 @@ export function InteractiveSky({
         preset={preset}
         assetPrefix={assetPrefix}
       />
+      {placement !== "landing" && (
       <div className="sky-dock" aria-label={`${owner} interactive sky controls`}>
         <label className="sky-select">
           <span>SKY</span>
@@ -95,6 +96,7 @@ export function InteractiveSky({
           {calm ? "WAKE SKY" : "CALM"}
         </button>
       </div>
+      )}
     </div>
   );
 }
