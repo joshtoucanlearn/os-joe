@@ -3,7 +3,7 @@ export function FootballProjectCard() {
     <section className="joe-card featured" aria-label="Joe's football game project">
       <span>DARTY</span>
       <h2>Your football game.</h2>
-      <p>Play football, land two big tackles, and watch the toy parts pop off. Then choose what to change next.</p>
+      <p>Play football, land one hard hit, and watch a toy part pop off. Then choose what to change next.</p>
       <div className="joe-actions">
         <a
           href="https://joshtoucanlearn.github.io/darty/darty.html"
