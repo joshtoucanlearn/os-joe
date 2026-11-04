@@ -1,5 +1,7 @@
 # OS_Joe
 
+**Since 4 Nov 2026 the live site is a plain static build in `docs/` (pixel sky, "Hello Joe", Projects: DARTY, Drinks, Notes wall, Snake, Frogger), in the same style as Rayansh's site.** Edit `docs/` directly. The Next.js source below is the old site, kept for reference only: do not run `scripts/prepare-pages.py`, as it would overwrite `docs/`. Old paths (`home/`, `arcade/`, `products/`, `write/`) redirect.
+
 Joe’s personal project showcase: original drink designs, rotating 3D bottle models, a sticky-note wall and arcade.
 
 ## Development

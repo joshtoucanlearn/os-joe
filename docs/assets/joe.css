@@ -1,0 +1,75 @@
+/* Joe's extra tabs: DARTY, Drinks and the sticky-note wall. */
+.tabs-five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.panel, .darty-machine, .drinks-machine, .wall-machine { border: 1px solid var(--teal-dim); background: rgba(2,10,20,.95); box-shadow: 8px 8px 0 rgba(244,191,79,.12); }
+
+/* DARTY */
+.darty-machine { padding: 10px; }
+.darty-frame { display: block; width: 100%; height: max(380px, calc(100vh - 230px)); height: max(380px, calc(100svh - 230px)); border: 1px solid var(--teal-dim); background: #0b2236; }
+.darty-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 2px 0; color: var(--muted); font: 13px/1.4 system-ui, sans-serif; }
+.darty-bar a { color: var(--gold); font: 400 13px/1.4 var(--pixel); text-decoration: none; }
+.darty-bar a:hover { color: var(--teal-bright); }
+
+/* Drinks */
+.drinks-machine { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: 10px 14px; padding: 12px; }
+.drink-picker { grid-column: 1; grid-row: 1 / span 2; display: flex; flex-direction: column; gap: 8px; }
+.drink-picker button { min-height: 46px; padding: 10px 12px; border: 1px solid var(--line); background: #0a1b2e; color: var(--gold); font: 400 15px/1.3 var(--pixel); text-align: left; cursor: pointer; }
+.drink-picker button:hover, .drink-picker button[aria-pressed="true"] { border-color: var(--teal-bright); background: linear-gradient(135deg, rgba(16,199,181,.25), rgba(3,14,26,.94)); }
+.drink-picker button[aria-pressed="true"] { box-shadow: 4px 4px 0 rgba(244,191,79,.55); }
+.drink-stage { position: relative; grid-column: 2; grid-row: 1 / span 3; min-width: 0; }
+.drink-screen { position: relative; width: 100%; height: max(300px, calc(100vh - 240px)); height: max(300px, calc(100svh - 240px)); overflow: hidden; border: 1px solid var(--teal-dim); background: #2a8f8a; }
+.drink-screen .drink-spin { position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.drink-screen .drink-spin[data-dragging] { cursor: grabbing; }
+.drink-screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.drinks-machine .drink-info { grid-column: 1; grid-row: 3; align-self: end; margin: 0; padding: 10px 12px; border: 1px solid var(--line); background: #06111f; }
+.drinks-machine .drink-info strong { display: block; color: var(--teal-bright); font: 400 20px/1.3 var(--pixel); }
+.drinks-machine .drink-info p { margin: 6px 0 0; color: var(--text); font: 13px/1.45 system-ui, sans-serif; }
+.drink-help { position: absolute; right: 10px; bottom: 10px; margin: 0; padding: 4px 8px; background: rgba(2,10,20,.75); color: var(--gold); font: 400 12px/1.4 var(--pixel); pointer-events: none; }
+
+/* Sticky-note wall */
+.wall-machine { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 14px; padding: 12px; }
+.note-composer { display: flex; flex-direction: column; gap: 8px; align-self: start; position: sticky; top: 12px; }
+.note-composer label, .note-colours legend { color: var(--teal); font: 400 13px/1.4 var(--pixel); }
+.note-composer input, .note-composer textarea { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 0; background: #06111f; color: var(--text); font: 15px/1.4 system-ui, sans-serif; }
+.note-composer textarea { min-height: 110px; resize: vertical; }
+.note-composer input:focus, .note-composer textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+.note-colours { display: flex; gap: 8px; margin: 2px 0; padding: 0; border: 0; }
+.note-colours legend { margin-bottom: 6px; }
+.note-colours button { width: 34px; height: 34px; border: 2px solid #020811; cursor: pointer; }
+.note-colours button[aria-pressed="true"] { outline: 3px solid var(--teal-bright); outline-offset: 2px; }
+.note-composer .game-button:disabled { opacity: .5; cursor: default; }
+.ghost-button { min-height: 40px; padding: 8px 12px; border: 1px solid var(--teal-dim); background: transparent; color: var(--teal-bright); font: 400 13px/1.4 var(--pixel); cursor: pointer; }
+.ghost-button:hover { border-color: var(--gold); color: var(--gold); }
+.ghost-button:disabled { opacity: .5; cursor: default; }
+.ghost-button[hidden] { display: none; }
+.note-status { min-height: 1.4em; margin: 2px 0 0; color: var(--muted); font: 13px/1.45 system-ui, sans-serif; }
+.note-area { min-width: 0; }
+.note-caption { margin: 0 0 8px; color: var(--muted); font: 13px/1.4 system-ui, sans-serif; }
+.note-wall { --note-width: 220px; position: relative; border: 1px solid var(--line); background:
+  linear-gradient(rgba(16,199,181,.06) 1px, transparent 1px) 0 0 / 20px 20px,
+  linear-gradient(90deg, rgba(16,199,181,.06) 1px, transparent 1px) 0 0 / 20px 20px, #06111f; }
+.wall-empty { position: absolute; inset: 40px 20px auto; text-align: center; color: var(--muted); }
+.wall-empty h2 { margin: 0 0 8px; color: var(--gold); font: 400 20px/1.4 var(--pixel); }
+.wall-empty p { margin: 0; font: 14px/1.5 system-ui, sans-serif; }
+.sticky-note { position: absolute; width: var(--note-width); padding: 8px 12px 10px; color: #0a272c; box-shadow: 5px 5px 0 rgba(2,8,17,.6); }
+.sticky-note h2 { margin: 6px 0 4px; font: 400 15px/1.35 var(--pixel); overflow-wrap: anywhere; }
+.sticky-note p { margin: 0; font: 14px/1.45 system-ui, sans-serif; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 300px; overflow: auto; }
+.note-handle { width: 100%; padding: 4px; border: 0; border-bottom: 2px dashed rgba(10,39,44,.35); background: transparent; color: #0a272c; font: 400 11px/1.4 var(--pixel); text-align: left; cursor: grab; touch-action: none; }
+.note-tools { display: flex; gap: 6px; margin-top: 8px; }
+.note-tools button { padding: 4px 8px; border: 1px solid rgba(10,39,44,.5); background: rgba(255,255,255,.4); color: #0a272c; font: 400 11px/1.4 var(--pixel); cursor: pointer; }
+.sticky-note button:disabled { opacity: .55; cursor: default; }
+
+@media (max-width: 700px) {
+  .tabs-five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tabs-five button { min-height: 46px; padding: 8px 4px; }
+  .darty-frame { height: max(360px, calc(100svh - 300px)); }
+  .drinks-machine { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+  .drink-picker { grid-column: 1; grid-row: 1; flex-direction: row; }
+  .drink-picker button { flex: 1; min-height: 42px; padding: 8px 4px; font-size: 12px; text-align: center; }
+  .drink-stage { grid-column: 1; grid-row: 2; }
+  .drink-screen { height: auto; aspect-ratio: 4 / 3; }
+  .drinks-machine .drink-info { grid-column: 1; grid-row: 3; }
+  .wall-machine { grid-template-columns: 1fr; }
+  .note-composer { position: static; }
+  .note-wall { --note-width: 160px; }
+}
+.note-composer .game-button { font: 400 14px/1.4 var(--pixel); }
