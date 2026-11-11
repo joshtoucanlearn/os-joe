@@ -10,10 +10,29 @@ export function mountDarty(container) {
       allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
     <div class="darty-bar">
       <span>Keyboard or controller.</span>
-      <a href="${DARTY_URL}" target="_blank" rel="noopener">Full screen ↗</a>
+      <span class="darty-actions">
+        <button type="button" class="darty-fullscreen">Full screen</button>
+        <a href="${DARTY_URL}" target="_blank" rel="noopener">New tab ↗</a>
+      </span>
     </div>`;
   container.append(root);
   const frame = root.querySelector('iframe');
+  const button = root.querySelector('.darty-fullscreen');
+  const enter = frame.requestFullscreen || frame.webkitRequestFullscreen;
+  if (!enter) {
+    // No fullscreen support here (for example iPhone Safari): the new-tab link is the way to go big.
+    button.hidden = true;
+  } else {
+    button.addEventListener('click', async () => {
+      try {
+        await enter.call(frame);
+      } catch {
+        window.open(DARTY_URL, '_blank', 'noopener');
+        return;
+      }
+      frame.focus(); // keys go straight to the game; Esc leaves full screen
+    });
+  }
   return () => { frame.src = 'about:blank'; };
 }
 

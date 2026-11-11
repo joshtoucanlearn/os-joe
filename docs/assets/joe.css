@@ -8,6 +8,11 @@
 .darty-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 2px 0; color: var(--muted); font: 13px/1.4 system-ui, sans-serif; }
 .darty-bar a { color: var(--gold); font: 400 13px/1.4 var(--pixel); text-decoration: none; }
 .darty-bar a:hover { color: var(--teal-bright); }
+.darty-actions { display: flex; align-items: center; gap: 16px; }
+.darty-fullscreen { padding: 4px 10px; border: 1px solid var(--gold); background: transparent; color: var(--gold); font: 400 13px/1.4 var(--pixel); cursor: pointer; }
+.darty-fullscreen:hover, .darty-fullscreen:focus-visible { color: var(--teal-bright); border-color: var(--teal-bright); }
+.darty-frame:fullscreen { width: 100vw; height: 100vh; border: 0; background: #000; }
+.darty-frame:-webkit-full-screen { width: 100vw; height: 100vh; border: 0; background: #000; }
 
 /* Drinks */
 .drinks-machine { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: 10px 14px; padding: 12px; }
