@@ -18,9 +18,9 @@ export function mountDarty(container) {
 }
 
 const DRINKS = [
-  { id: 'fizzy', name: 'Fizzy', lines: ['Light, bright red. Fizzy Extreme.'] },
-  { id: 'skids', name: 'Skids', lines: ["When you're in a rush, have some Skids."] },
-  { id: 'ground-pinch', name: 'Ground Pinch', lines: ['It’s sweet, fast, cheap, and will help you destroy your enemies.'] },
+  { id: 'fizzy', original: '../assets/originals/fizzy.png', name: 'Fizzy', lines: ['Light, bright red. Fizzy Extreme.'] },
+  { id: 'skids', original: '../assets/originals/skids.png', name: 'Skids', lines: ["When you're in a rush, have some Skids."] },
+  { id: 'ground-pinch', original: '../assets/originals/ground-pinch.png', name: 'Ground Pinch', lines: ['It’s sweet, fast, cheap, and will help you destroy your enemies.'] },
 ];
 
 export function mountDrinks(container) {

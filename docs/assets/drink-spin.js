@@ -258,6 +258,19 @@ export function renderDrinkInfo(card, drink) {
   const line = document.createElement('p');
   line.textContent = drink.lines.join(' · ');
   card.replaceChildren(name, line);
+  if (drink.original) {
+    // Owner, 11 Nov: show his own design beside the 3D version.
+    const figure = document.createElement('figure');
+    figure.className = 'drink-original';
+    const img = document.createElement('img');
+    img.src = drink.original;
+    img.alt = `Joe's original ${drink.name} design`;
+    img.loading = 'lazy';
+    const caption = document.createElement('figcaption');
+    caption.textContent = 'His original design';
+    figure.append(img, caption);
+    card.append(figure);
+  }
 }
 
 // One instance owns one drink. Disposal cancels its manifest and preload queue.

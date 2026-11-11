@@ -73,3 +73,6 @@
   .note-wall { --note-width: 160px; }
 }
 .note-composer .game-button { font: 400 14px/1.4 var(--pixel); }
+.drinks-machine .drink-original { margin: 10px 0 0; display: grid; justify-items: start; gap: 6px; }
+.drinks-machine .drink-original img { display: block; max-width: 100%; max-height: 160px; width: auto; height: auto; background: #0c1a2b; border: 1px solid var(--line); padding: 6px; }
+.drinks-machine .drink-original figcaption { color: var(--teal-bright); font: 400 13px/1.2 var(--pixel); letter-spacing: .04em; }
